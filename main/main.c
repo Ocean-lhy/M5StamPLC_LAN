@@ -14,6 +14,8 @@
 #include "ethernet_init.h"
 #include "sdkconfig.h"
 
+#include "test_case.h"
+
 static const char *TAG = "ethernet_basic";
 
 
@@ -55,6 +57,8 @@ void app_main(void)
         esp_netif_t *eth_netif = esp_netif_new(&cfg);
         // Attach Ethernet driver to TCP/IP stack
         ESP_ERROR_CHECK(esp_netif_attach(eth_netif, esp_eth_new_netif_glue(eth_handles[0])));
+        // static_ip_test_case(eth_netif);
+        // dns_test_case(eth_netif);
     } else {
         // Use ESP_NETIF_INHERENT_DEFAULT_ETH when multiple Ethernet interfaces are used and so you need to modify
         // esp-netif configuration parameters for each interface (name, priority, etc.).
@@ -98,4 +102,8 @@ void app_main(void)
             ESP_LOGI(TAG, "Pins: cs: %d, intr: %d", info.pin.eth_spi_cs, info.pin.eth_spi_int);
         }
     }
+
+    // tcp_server_test_case();
+    // tcp_client_test_case();
+    // udp_test_case();
 }
