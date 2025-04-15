@@ -106,4 +106,6 @@ void app_main(void)
     // tcp_server_test_case();
     // tcp_client_test_case();
     // udp_test_case();
+    // iperf_test_case();
+    // multi_socket_send_receive_test();
 }

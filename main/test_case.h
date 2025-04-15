@@ -13,4 +13,8 @@ void tcp_client_test_case(void);
 
 void udp_test_case(void);
 
+void iperf_test_case(void); 
+
+void multi_socket_send_receive_test(void);
+
 #endif
